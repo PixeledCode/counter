@@ -3,8 +3,11 @@ import { Button } from './components/ui/button'
 import { Menu } from './components/Menu'
 import { List } from './components/List/List'
 import { EditList } from './components/List/EditList'
+import { useStore } from './lib/store'
 
 function App() {
+	const list = useStore((state) => state.list)
+	const editList = useStore((state) => state.editList)
 	const [editMode, setEditMode] = React.useState(false)
 
 	return (
@@ -17,11 +20,19 @@ function App() {
 							<Button variant="ghost" onClick={() => setEditMode(false)}>
 								Cancel
 							</Button>
-						) : (
+						) : list.length > 0 ? (
 							<Menu setEditMode={setEditMode} />
-						)}
+						) : null}
 					</div>
-					{editMode ? <EditList setEditMode={setEditMode} /> : <List />}
+					{editMode ? (
+						<EditList
+							setEditMode={setEditMode}
+							list={list}
+							editList={editList}
+						/>
+					) : (
+						<List list={list} editList={editList} />
+					)}
 				</div>
 			</div>
 		</>

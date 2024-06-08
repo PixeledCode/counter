@@ -1,12 +1,15 @@
-import { useStore } from '@/lib/store'
 import { CandyOff } from 'lucide-react'
 import { Count } from './Count'
 import { AddCount } from '../add-count'
+import { ListProps } from '@/lib/store'
 
-export const List = () => {
-	const list = useStore((state) => state.list)
-	const editList = useStore((state) => state.editList)
-
+export const List = ({
+	list,
+	editList,
+}: {
+	list: ListProps
+	editList: (list: ListProps) => void
+}) => {
 	return (
 		<>
 			{list.length === 0 ? (

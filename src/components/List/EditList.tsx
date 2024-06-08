@@ -1,4 +1,4 @@
-import { ListProps, useStore } from '@/lib/store'
+import { ListProps } from '@/lib/store'
 import { CandyOff, Minus, Plus } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
@@ -6,12 +6,14 @@ import React from 'react'
 
 export const EditList = ({
 	setEditMode,
+	list: defaultList,
+	editList,
 }: {
 	setEditMode: (value: boolean) => void
+	list: ListProps
+	editList: (list: ListProps) => void
 }) => {
-	const list = useStore((state) => state.list)
-	const editList = useStore((state) => state.editList)
-
+	const [list, setList] = React.useState(defaultList)
 	return (
 		<>
 			{list.length === 0 ? (
@@ -29,7 +31,7 @@ export const EditList = ({
 							name={name}
 							count={count}
 							list={list}
-							editList={editList}
+							setList={setList}
 						/>
 					))}
 				</section>
@@ -52,12 +54,12 @@ const Count = ({
 	name,
 	count: defaultCount,
 	list,
-	editList,
+	setList,
 }: {
 	name: string
 	count: number
 	list: ListProps
-	editList: (list: ListProps) => void
+	setList: (list: ListProps) => void
 }) => {
 	const [count, setCount] = React.useState(defaultCount)
 
@@ -99,12 +101,12 @@ const Count = ({
 			return item
 		})
 		setCount(updatedCount)
-		editList(newArr)
+		setList(newArr)
 	}
 
 	function deleteItem(name: string) {
 		const newArr = list.filter((item) => item.name !== name)
-		editList(newArr)
+		setList(newArr)
 	}
 	return (
 		<article className="flex flex-col gap-1">
