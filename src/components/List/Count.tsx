@@ -19,10 +19,11 @@ export const Count = ({
 	function changeCount(type: 'add' | 'reduce') {
 		if (type === 'reduce' && count === 0) return
 
+		let updatedCount = count
 		if (type === 'reduce') {
-			setCount((prev) => prev - 1)
+			updatedCount = count - 1
 		} else {
-			setCount((prev) => prev + 1)
+			updatedCount = count + 1
 		}
 
 		const newArr = [...list].map((item) => {
@@ -30,7 +31,7 @@ export const Count = ({
 				const date = new Date().toISOString().split('T')[0]
 				return {
 					...item,
-					count,
+					count: updatedCount,
 					meta: {
 						...item.meta,
 						last_update: date,
@@ -45,6 +46,7 @@ export const Count = ({
 			return item
 		})
 		editList(newArr)
+		setCount(updatedCount)
 	}
 
 	return (

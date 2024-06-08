@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from './components/ui/button'
 import { Menu } from './components/Menu'
 import { List } from './components/List/List'
+import { EditList } from './components/List/EditList'
 
 function App() {
 	const [editMode, setEditMode] = React.useState(false)
@@ -20,7 +21,7 @@ function App() {
 							<Menu setEditMode={setEditMode} />
 						)}
 					</div>
-					{editMode ? <div>Edit List</div> : <List />}
+					{editMode ? <EditList setEditMode={setEditMode} /> : <List />}
 				</div>
 			</div>
 		</>

@@ -1,6 +1,6 @@
 import { useStore } from '@/lib/store'
 import { CandyOff } from 'lucide-react'
-import { Count } from '../Count/Count'
+import { Count } from './Count'
 import { AddCount } from '../add-count'
 
 export const List = () => {
