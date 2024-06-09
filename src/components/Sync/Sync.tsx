@@ -8,7 +8,7 @@ import {
 } from '../ui/drawer'
 import { toast } from 'sonner'
 import { useStore } from '@/lib/store'
-import { schema } from './validator'
+import { uploadData } from '@/lib/utils'
 
 export const Sync = ({
 	syncOpen,
@@ -38,39 +38,6 @@ export const Sync = ({
 		}
 	}
 
-	function uploadData() {
-		const input = document.createElement('input')
-		input.type = 'file'
-		input.accept = '.json'
-		input.onchange = (e) => {
-			const file = (e.target as HTMLInputElement).files?.[0]
-
-			if (file) {
-				const reader = new FileReader()
-				reader.onload = (e) => {
-					const data = e.target?.result
-
-					if (data) {
-						const jsonData = JSON.parse(data as string)
-						const validationResult = schema.validate(jsonData)
-						if (validationResult.error) {
-							toast.error('Invalid data')
-							setSyncOpen(false)
-						} else {
-							editList(jsonData.state.list)
-							toast.success('Data uploaded successfully')
-							setSyncOpen(false)
-						}
-					}
-				}
-
-				reader.readAsText(file)
-			}
-		}
-
-		input.click()
-	}
-
 	return (
 		<Drawer
 			open={syncOpen}
@@ -97,7 +64,7 @@ export const Sync = ({
 						</span>
 					</button>
 					<button
-						onClick={uploadData}
+						onClick={() => uploadData(editList, setSyncOpen)}
 						className="flex items-center justify-between gap-2 border border-solid border-slate-400 rounded-lg p-2 px-4"
 					>
 						<span className="flex items-center gap-4">

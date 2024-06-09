@@ -6,10 +6,12 @@ import { EditList } from './components/List/EditList'
 import { useStore } from './lib/store'
 import { Activity } from './components/Activity/Activity'
 import { Sync } from './components/Sync/Sync'
+import { uploadData } from './lib/utils'
 
 function App() {
 	const list = useStore((state) => state.list)
 	const editList = useStore((state) => state.editList)
+
 	const [editMode, setEditMode] = React.useState(false)
 	const [logMode, setLogMode] = React.useState(false)
 	const [syncOpen, setSyncOpen] = React.useState(false)
@@ -29,7 +31,14 @@ function App() {
 							setLogMode={setLogMode}
 							setSyncOpen={setSyncOpen}
 						/>
-					) : null}
+					) : (
+						<Button
+							variant="ghost"
+							onClick={() => uploadData(editList, setSyncOpen)}
+						>
+							Upload
+						</Button>
+					)}
 				</div>
 				{editMode ? (
 					<EditList setEditMode={setEditMode} list={list} editList={editList} />
