@@ -11,9 +11,11 @@ import React from 'react'
 export const Menu = ({
 	setEditMode,
 	setLogMode,
+	setSyncOpen,
 }: {
 	setEditMode: (value: boolean) => void
 	setLogMode: (value: boolean) => void
+	setSyncOpen: (value: boolean) => void
 }) => {
 	const [canShare, setCanShare] = React.useState(false)
 
@@ -44,7 +46,6 @@ export const Menu = ({
 				</DropdownMenuItem>
 				<DropdownMenuItem
 					onClick={() => {
-						1
 						setLogMode(true)
 					}}
 				>
@@ -61,6 +62,13 @@ export const Menu = ({
 						Share
 					</DropdownMenuItem>
 				) : null}
+				<DropdownMenuItem
+					onClick={() => {
+						setSyncOpen(true)
+					}}
+				>
+					Sync
+				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>
 	)

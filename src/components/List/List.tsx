@@ -22,9 +22,9 @@ export const List = ({
 				</section>
 			) : (
 				<section className="flex flex-col gap-6 py-4 px-4 mx-[-16px] list-container bg-background">
-					{list.map(({ name, count, meta }) => (
+					{list.map(({ name, count }, index) => (
 						<Count
-							key={meta.creation_date}
+							key={index}
 							name={name}
 							count={count}
 							list={list}
