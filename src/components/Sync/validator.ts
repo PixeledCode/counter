@@ -15,9 +15,4 @@ const itemSchema = Joi.object({
 	}).required(),
 })
 
-export const schema = Joi.object({
-	state: Joi.object({
-		list: Joi.array().items(itemSchema).required(),
-	}).required(),
-	version: Joi.number().integer().min(0).required(),
-})
+export const schema = Joi.array().items(itemSchema).required()

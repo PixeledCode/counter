@@ -51,7 +51,7 @@ export function uploadData(
 						toast.error('Invalid data')
 						setSyncOpen(false)
 					} else {
-						editList(jsonData.state.list)
+						editList(jsonData)
 						toast.success('Data uploaded successfully')
 						setSyncOpen(false)
 					}
