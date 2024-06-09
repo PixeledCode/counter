@@ -4,13 +4,25 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { shareScreenshot } from '@/lib/utils'
 import { MenuIcon } from 'lucide-react'
+import React from 'react'
 
 export const Menu = ({
 	setEditMode,
+	setLogMode,
 }: {
 	setEditMode: (value: boolean) => void
+	setLogMode: (value: boolean) => void
 }) => {
+	const [canShare, setCanShare] = React.useState(false)
+
+	React.useEffect(() => {
+		if ('share' in navigator) {
+			setCanShare(true)
+		}
+	}, [])
+
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger
@@ -30,10 +42,25 @@ export const Menu = ({
 				>
 					Edit
 				</DropdownMenuItem>
-				<DropdownMenuItem onClick={() => {}}>Logs</DropdownMenuItem>
-				{/* {#if canShare}
-			<DropdownMenuItem on:click={handleShare}>Share</DropdownMenuItem>
-		{/if} */}
+				<DropdownMenuItem
+					onClick={() => {
+						1
+						setLogMode(true)
+					}}
+				>
+					Logs
+				</DropdownMenuItem>
+				{canShare ? (
+					<DropdownMenuItem
+						onClick={() => {
+							shareScreenshot(
+								document.querySelector('.list-container') as HTMLElement
+							)
+						}}
+					>
+						Share
+					</DropdownMenuItem>
+				) : null}
 			</DropdownMenuContent>
 		</DropdownMenu>
 	)

@@ -4,11 +4,13 @@ import { Menu } from './components/Menu'
 import { List } from './components/List/List'
 import { EditList } from './components/List/EditList'
 import { useStore } from './lib/store'
+import { Activity } from './components/Logs/Activity'
 
 function App() {
 	const list = useStore((state) => state.list)
 	const editList = useStore((state) => state.editList)
 	const [editMode, setEditMode] = React.useState(false)
+	const [logMode, setLogMode] = React.useState(false)
 
 	return (
 		<>
@@ -21,7 +23,7 @@ function App() {
 								Cancel
 							</Button>
 						) : list.length > 0 ? (
-							<Menu setEditMode={setEditMode} />
+							<Menu setEditMode={setEditMode} setLogMode={setLogMode} />
 						) : null}
 					</div>
 					{editMode ? (
@@ -34,6 +36,7 @@ function App() {
 						<List list={list} editList={editList} />
 					)}
 				</div>
+				<Activity logMode={logMode} setLogMode={setLogMode} />
 			</div>
 		</>
 	)
