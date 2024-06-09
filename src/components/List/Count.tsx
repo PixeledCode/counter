@@ -1,7 +1,8 @@
-import { Minus, Plus } from 'lucide-react'
 import { Button } from '../ui/button'
 import { ListProps } from '@/lib/store'
 import React from 'react'
+import { Minus } from '../icons/Minus'
+import { Plus } from '../icons/Plus'
 
 export const Count = ({
 	name,
@@ -50,29 +51,29 @@ export const Count = ({
 	}
 
 	return (
-		<article className="flex flex-col gap-1">
-			<h2 className="text-xl font-semibold tracking-tight text-start">
-				{name}
-			</h2>
-			<div className="flex justify-between items-center gap-2">
+		<article className="flex flex-col gap-3 p-3 bg-theme-bg-subtle rounded-md">
+			<h2 className="text-xl font-bold tracking-tight text-start">{name}</h2>
+			<div className="flex justify-between items-center gap-2 px-3">
 				<Button
-					variant="outline"
+					variant="ghost"
 					size="icon"
+					className="p-0"
 					onClick={() => changeCount('reduce')}
 				>
-					<Minus />
+					<Minus width={32} />
 				</Button>
 				<div className="overflow-hidden text-center relative w-32 h-6">
 					<div className="w-full h-full flex items-center justify-center">
-						<strong>{count}</strong>
+						<span className="font-bold">{count}</span>
 					</div>
 				</div>
 				<Button
-					variant="outline"
+					variant="ghost"
 					size="icon"
 					onClick={() => changeCount('add')}
+					className="p-0"
 				>
-					<Plus />
+					<Plus width={32} />
 				</Button>
 			</div>
 		</article>

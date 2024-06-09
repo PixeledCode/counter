@@ -21,7 +21,7 @@ export const List = ({
 					<p className="text-center">Add a new item to get started</p>
 				</section>
 			) : (
-				<section className="flex flex-col gap-6 py-4 mx-[-16px] list-container px-6">
+				<section className="flex flex-col gap-2 py-4 list-container px-4 overflow-y-auto h-[calc(100%_-_48px)]">
 					{list.map(({ name, count }, index) => (
 						<Count
 							key={index}
@@ -34,7 +34,7 @@ export const List = ({
 				</section>
 			)}
 
-			<div className="m-3">
+			<div className="fixed w-full bottom-3 px-3">
 				<AddCount />
 			</div>
 		</>

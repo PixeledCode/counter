@@ -37,15 +37,17 @@ export const EditList = ({
 				</section>
 			)}
 
-			<Button
-				onClick={() => {
-					editList(list)
-					setEditMode(false)
-				}}
-				className="w-full mx-auto"
-			>
-				Save
-			</Button>
+			<div className="m-3">
+				<Button
+					onClick={() => {
+						editList(list)
+						setEditMode(false)
+					}}
+					className="w-full mx-auto rounded-lg font-extrabold bg-theme-bg-primary"
+				>
+					Save
+				</Button>
+			</div>
 		</>
 	)
 }

@@ -31,7 +31,9 @@ export const AddCount = () => {
 			}}
 		>
 			<DrawerTrigger asChild>
-				<Button className="w-full mx-auto">Add new count</Button>
+				<Button className="w-full mx-auto rounded-lg font-extrabold bg-theme-bg-primary">
+					Add new count
+				</Button>
 			</DrawerTrigger>
 
 			<DrawerContent>

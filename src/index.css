@@ -81,8 +81,15 @@
 		@apply border-border;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-background text-theme-text;
 	}
+}
+
+body {
+	font-family: 'Manrope', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 500;
+	font-style: normal;
 }
 
 input[type='color'],
