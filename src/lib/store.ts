@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
 
 interface State {
 	list: ListProps
@@ -17,7 +18,14 @@ export type ListProps = {
 	}
 }[]
 
-export const useStore = create<State>()((set) => ({
-	list: [],
-	editList: (newList) => set(() => ({ list: newList })),
-}))
+export const useStore = create<State>()(
+	persist(
+		(set) => ({
+			list: [],
+			editList: (newList) => set(() => ({ list: newList })),
+		}),
+		{
+			name: 'count_store_px',
+		}
+	)
+)
