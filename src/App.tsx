@@ -60,7 +60,12 @@ const Header = ({
 		<div className="flex justify-between items-center gap-6 px-6 py-3 bg-theme-bg-primary text-theme-text-on-primary">
 			<h1 className="font-extrabold">Counter</h1>
 			{editMode ? (
-				<Button variant="ghost" onClick={() => setEditMode(false)}>
+				<Button
+					variant="outline"
+					size="sm"
+					className="text-theme-text-on-primary bg-theme-bg-primary hover:bg-theme-bg-primary active:bg-theme-bg-primary h-10"
+					onClick={() => setEditMode(false)}
+				>
 					Cancel
 				</Button>
 			) : list.length > 0 ? (

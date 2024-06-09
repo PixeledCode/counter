@@ -8,9 +8,9 @@ export const Check = ({ ...props }: React.SVGProps<SVGSVGElement>) => {
 		>
 			<path
 				fill="#2859c5"
-				fill-rule="evenodd"
+				fillRule="evenodd"
 				d="M38.683 10.658a3 3 0 0 1-1.341 4.025L18.708 24l18.634 9.317a3 3 0 0 1-2.684 5.366l-24-12a3 3 0 0 1 0-5.366l24-12a3 3 0 0 1 4.025 1.341Z"
-				clip-rule="evenodd"
+				clipRule="evenodd"
 			/>
 			<path
 				fill="#8fbffa"

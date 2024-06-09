@@ -16,7 +16,7 @@ import { Label } from './ui/label'
 
 export const AddCount = () => {
 	const [name, setName] = React.useState('')
-	const [count, setCount] = React.useState(0)
+	const [count, setCount] = React.useState(1)
 	const [drawerOpen, setDrawerOpen] = React.useState(false)
 
 	const list = useStore((state) => state.list)
@@ -38,7 +38,7 @@ export const AddCount = () => {
 
 			<DrawerContent>
 				<DrawerHeader className="flex items-center justify-between gap-2">
-					<DrawerTitle>Add New Count</DrawerTitle>
+					<DrawerTitle className="font-semibold">Add New Count</DrawerTitle>
 					<DrawerClose className="bg-theme-bg-seconday text-theme-text-on-secondary py-1 px-2 rounded-md">
 						Cancel
 					</DrawerClose>

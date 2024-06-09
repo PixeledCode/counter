@@ -49,8 +49,10 @@ export const Sync = ({
 		>
 			<DrawerContent className="min-h-[40dvh]">
 				<DrawerHeader className="flex items-center justify-between gap-2 px-6">
-					<DrawerTitle>Sync</DrawerTitle>
-					<DrawerClose>Cancel</DrawerClose>
+					<DrawerTitle className="font-semibold">Sync</DrawerTitle>
+					<DrawerClose className="bg-theme-bg-seconday text-theme-text-on-secondary py-1 px-2 rounded-md">
+						Cancel
+					</DrawerClose>
 				</DrawerHeader>
 
 				<div className="flex flex-col gap-2 px-4">
@@ -59,7 +61,7 @@ export const Sync = ({
 						className="flex items-center justify-between gap-2 border border-solid border-slate-400 rounded-lg p-2 px-4"
 					>
 						<span className="flex items-center gap-4">
-							<Download size={18} />
+							<Download size={18} color="var(--theme-icon)" />
 							Download
 						</span>
 					</button>
@@ -68,7 +70,7 @@ export const Sync = ({
 						className="flex items-center justify-between gap-2 border border-solid border-slate-400 rounded-lg p-2 px-4"
 					>
 						<span className="flex items-center gap-4">
-							<Upload size={18} />
+							<Upload size={18} color="var(--theme-icon)" />
 							Upload
 						</span>
 					</button>

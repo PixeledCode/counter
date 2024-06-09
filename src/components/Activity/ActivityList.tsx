@@ -33,7 +33,7 @@ export const ActivityList = ({
 										{new Date(item.meta.last_update).toDateString()}
 									</p>
 								</div>
-								<ArrowRightCircleIcon />
+								<ArrowRightCircleIcon color="var(--theme-icon)" />
 							</button>
 						))}
 					</div>

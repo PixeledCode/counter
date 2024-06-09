@@ -61,6 +61,7 @@ module.exports = {
 				'theme-text': 'var(--theme-text)',
 				'theme-text-on-primary': 'var(--theme-text-on-primary)',
 				'theme-text-on-secondary': 'var(--theme-text-on-secondary)',
+				'warning-mid': 'var(--warning-mid)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

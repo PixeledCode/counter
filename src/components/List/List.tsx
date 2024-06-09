@@ -22,9 +22,9 @@ export const List = ({
 				</section>
 			) : (
 				<section className="flex flex-col gap-2 py-4 list-container px-4 overflow-y-auto h-[calc(100%_-_48px)]">
-					{list.map(({ name, count }, index) => (
+					{list.map(({ name, count }) => (
 						<Count
-							key={index}
+							key={name}
 							name={name}
 							count={count}
 							list={list}
@@ -34,7 +34,7 @@ export const List = ({
 				</section>
 			)}
 
-			<div className="fixed w-full bottom-3 px-3">
+			<div className="absolute w-full bottom-3 px-3">
 				<AddCount />
 			</div>
 		</>

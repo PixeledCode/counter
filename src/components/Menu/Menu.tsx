@@ -8,6 +8,10 @@ import { shareScreenshot } from '@/lib/utils'
 import { MenuIcon } from '@/components/icons/MenuIcon'
 import React from 'react'
 import { Cross } from '../icons/Cross'
+import { Edit } from '../icons/Edit'
+import { Calendar } from '../icons/Calendar'
+import { Share } from '../icons/Share'
+import { SyncIcon } from '../icons/SyncIcon'
 
 export const Menu = ({
 	setEditMode,
@@ -37,8 +41,7 @@ export const Menu = ({
 			<DropdownMenuTrigger
 				className="inline-flex items-center justify-center rounded-md text-sm font-medium 
     whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none
-    disabled:pointer-events-none disabled:opacity-50 active:bg-accent active:text-accent-foreground 
-    h-10 w-10"
+    disabled:pointer-events-none disabled:opacity-50 h-10 w-10"
 			>
 				{isOpened ? (
 					<Cross fill="white" width={24} />
@@ -46,20 +49,26 @@ export const Menu = ({
 					<MenuIcon fill="white" width={24} />
 				)}
 			</DropdownMenuTrigger>
-			<DropdownMenuContent align="end">
+			<DropdownMenuContent align="end" className="font-bold">
 				<DropdownMenuItem
 					onClick={() => {
 						setEditMode(true)
 					}}
 				>
-					Edit
+					<span className="flex items-center gap-3">
+						<Edit width={16} />
+						Edit
+					</span>
 				</DropdownMenuItem>
 				<DropdownMenuItem
 					onClick={() => {
 						setLogMode(true)
 					}}
 				>
-					Logs
+					<span className="flex items-center gap-3">
+						<Calendar width={16} />
+						Logs
+					</span>
 				</DropdownMenuItem>
 				{canShare ? (
 					<DropdownMenuItem
@@ -69,7 +78,10 @@ export const Menu = ({
 							)
 						}}
 					>
-						Share
+						<span className="flex items-center gap-3">
+							<Share width={16} />
+							Share
+						</span>
 					</DropdownMenuItem>
 				) : null}
 				<DropdownMenuItem
@@ -77,7 +89,10 @@ export const Menu = ({
 						setSyncOpen(true)
 					}}
 				>
-					Sync
+					<span className="flex items-center gap-3">
+						<SyncIcon width={16} fill="var(--theme-icon)" />
+						Sync
+					</span>
 				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>

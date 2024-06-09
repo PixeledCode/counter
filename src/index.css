@@ -42,7 +42,8 @@
 		--theme-icon-bg: #f7dfe5;
 		--theme-text: #330813;
 		--theme-text-on-primary: #ffffff;
-		--theme-text-on-secondary: #cc0d3d;
+		--theme-text-on-secondary: var(--theme-icon);
+		--warning-mid: #e58a9a;
 	}
 
 	.dark {

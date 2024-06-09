@@ -33,8 +33,10 @@ export const Activity = ({
 		>
 			<DrawerContent className="h-[90dvh]">
 				<DrawerHeader className="flex items-center justify-between gap-2 px-6">
-					<DrawerTitle>Activity</DrawerTitle>
-					<DrawerClose>Cancel</DrawerClose>
+					<DrawerTitle className="font-semibold">Activity</DrawerTitle>
+					<DrawerClose className="bg-theme-bg-seconday text-theme-text-on-secondary py-1 px-2 rounded-md">
+						Cancel
+					</DrawerClose>
 				</DrawerHeader>
 
 				{activeCounter === null ? (

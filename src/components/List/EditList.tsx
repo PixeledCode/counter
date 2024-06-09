@@ -1,8 +1,9 @@
 import { ListProps } from '@/lib/store'
-import { CandyOff, Minus, Plus } from 'lucide-react'
+import { CandyOff } from 'lucide-react'
+import React from 'react'
+import { Trash } from '../icons/Trash'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
-import React from 'react'
 
 export const EditList = ({
 	setEditMode,
@@ -24,7 +25,7 @@ export const EditList = ({
 					</h2>
 				</section>
 			) : (
-				<section className="flex flex-col gap-6 mt-4 px-6">
+				<section className="flex flex-col gap-2 py-4 list-container px-4 overflow-y-auto h-[calc(100%_-_48px)]">
 					{list.map(({ name, count }) => (
 						<Count
 							key={name}
@@ -37,7 +38,7 @@ export const EditList = ({
 				</section>
 			)}
 
-			<div className="m-3">
+			<div className="absolute w-full bottom-3 px-3">
 				<Button
 					onClick={() => {
 						editList(list)
@@ -111,22 +112,9 @@ const Count = ({
 		setList(newArr)
 	}
 	return (
-		<article className="flex flex-col gap-1">
-			<div className="flex items-center justify-between gap-2 flex-wrap">
-				<h2 className="text-xl font-semibold tracking-tight">{name}</h2>
-				<button onClick={() => deleteItem(name)}>
-					<p className="text-sm text-red-500">Delete</p>
-				</button>
-			</div>
+		<article className="flex flex-col gap-3 p-3 bg-theme-bg-subtle rounded-md">
+			<h2 className="text-xl font-semibold tracking-tight">{name}</h2>
 			<div className="flex justify-between items-center gap-2">
-				<Button
-					variant="outline"
-					size="icon"
-					onClick={() => updateCount(name, 'reduce')}
-				>
-					<Minus />
-				</Button>
-
 				<Input
 					type="number"
 					className="text-center w-max font-semibold max-w-20"
@@ -140,10 +128,14 @@ const Count = ({
 
 				<Button
 					variant="outline"
-					size="icon"
-					onClick={() => updateCount(name, 'add')}
+					size="sm"
+					onClick={() => deleteItem(name)}
+					className="bg-theme-bg-seconday border-none text-sm font-bold text-theme-icon"
 				>
-					<Plus />
+					<span className="flex items-center gap-2">
+						<Trash width={20} />
+						Delete
+					</span>
 				</Button>
 			</div>
 		</article>
