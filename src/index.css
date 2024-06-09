@@ -33,6 +33,16 @@
 		--ring: 222.2 84% 4.9%;
 
 		--radius: 0.5rem;
+
+		--theme-bg-primary: #b20b35;
+		--theme-bg-seconday: #f7dfe5;
+		--theme-bg-subtle: #faf5f6;
+		--theme-bg-light: #ffffff;
+		--theme-icon: #cc0d3d;
+		--theme-icon-bg: #f7dfe5;
+		--theme-text: #330813;
+		--theme-text-on-primary: #ffffff;
+		--theme-text-on-secondary: #cc0d3d;
 	}
 
 	.dark {

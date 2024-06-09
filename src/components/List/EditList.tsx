@@ -24,7 +24,7 @@ export const EditList = ({
 					</h2>
 				</section>
 			) : (
-				<section className="flex flex-col gap-6 mt-4">
+				<section className="flex flex-col gap-6 mt-4 px-6">
 					{list.map(({ name, count }) => (
 						<Count
 							key={name}

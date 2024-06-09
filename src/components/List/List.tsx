@@ -21,7 +21,7 @@ export const List = ({
 					<p className="text-center">Add a new item to get started</p>
 				</section>
 			) : (
-				<section className="flex flex-col gap-6 py-4 px-4 mx-[-16px] list-container bg-background">
+				<section className="flex flex-col gap-6 py-4 mx-[-16px] list-container px-6">
 					{list.map(({ name, count }, index) => (
 						<Count
 							key={index}
