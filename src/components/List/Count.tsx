@@ -60,7 +60,7 @@ export const Count = ({
 					className="p-0"
 					onClick={() => changeCount('reduce')}
 				>
-					<Minus width={32} />
+					<Minus width={48} />
 				</Button>
 				<div className="overflow-hidden text-center relative w-32 h-6">
 					<div className="w-full h-full flex items-center justify-center">
@@ -73,7 +73,7 @@ export const Count = ({
 					onClick={() => changeCount('add')}
 					className="p-0"
 				>
-					<Plus width={32} />
+					<Plus width={48} />
 				</Button>
 			</div>
 		</article>
