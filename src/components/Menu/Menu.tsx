@@ -4,7 +4,7 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { shareScreenshot } from '@/lib/utils'
+import { reactToSVG, shareImage, svgToPngURI } from '@/lib/utils'
 import { MenuIcon } from '@/components/icons/MenuIcon'
 import React from 'react'
 import { Cross } from '../icons/Cross'
@@ -12,15 +12,19 @@ import { Edit } from '../icons/Edit'
 import { Calendar } from '../icons/Calendar'
 import { Share } from '../icons/Share'
 import { SyncIcon } from '../icons/SyncIcon'
+import { Template } from '../Share/Template'
+import { ListProps } from '@/lib/store'
 
 export const Menu = ({
 	setEditMode,
 	setLogMode,
 	setSyncOpen,
+	list,
 }: {
 	setEditMode: (value: boolean) => void
 	setLogMode: (value: boolean) => void
 	setSyncOpen: (value: boolean) => void
+	list: ListProps
 }) => {
 	const [canShare, setCanShare] = React.useState(false)
 	const [isOpened, setIsOpened] = React.useState(false)
@@ -72,10 +76,11 @@ export const Menu = ({
 				</DropdownMenuItem>
 				{canShare ? (
 					<DropdownMenuItem
-						onClick={() => {
-							shareScreenshot(
-								document.querySelector('.list-container') as HTMLElement
-							)
+						onClick={async () => {
+							const pngURI = await reactToSVG(<Template list={list} />, {
+								width: 640,
+							}).then((res) => svgToPngURI(res))
+							shareImage(pngURI)
 						}}
 					>
 						<span className="flex items-center gap-3">

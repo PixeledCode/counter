@@ -17,7 +17,7 @@ function App() {
 	const [syncOpen, setSyncOpen] = React.useState(false)
 
 	return (
-		<div className="max-w-[520px] mx-auto">
+		<main className="max-w-[520px] mx-auto">
 			<div className="grid grid-rows-[auto_1fr_auto] h-[100svh] relative">
 				<Header
 					editMode={editMode}
@@ -37,7 +37,7 @@ function App() {
 
 			<Activity logMode={logMode} setLogMode={setLogMode} />
 			<Sync syncOpen={syncOpen} setSyncOpen={setSyncOpen} />
-		</div>
+		</main>
 	)
 }
 
@@ -73,6 +73,7 @@ const Header = ({
 					setEditMode={setEditMode}
 					setLogMode={setLogMode}
 					setSyncOpen={setSyncOpen}
+					list={list}
 				/>
 			) : (
 				<Button
