@@ -168,10 +168,13 @@ export const svgToPngURI = (svg: string): Promise<string> =>
 		const img = new Image()
 
 		img.onload = () => {
+			const scaleFactor = 3
+
 			const canvas = document.createElement('canvas')
-			canvas.width = img.naturalWidth
-			canvas.height = img.naturalHeight
+			canvas.width = img.naturalWidth * scaleFactor
+			canvas.height = img.naturalHeight * scaleFactor
 			const ctx = canvas.getContext('2d')
+			ctx!.scale(scaleFactor, scaleFactor)
 			ctx!.drawImage(img, 0, 0)
 			resolve(canvas.toDataURL('image/png'))
 			URL.revokeObjectURL(img.src)
