@@ -78,7 +78,7 @@ export const Menu = ({
 					<DropdownMenuItem
 						onClick={async () => {
 							const pngURI = await reactToSVG(<Template list={list} />, {
-								width: 640,
+								width: 320,
 							}).then((res) => svgToPngURI(res))
 							shareImage(pngURI)
 						}}
