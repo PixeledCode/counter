@@ -21,9 +21,12 @@ export const Sync = ({
 
 	function downloadData() {
 		const data = localStorage.getItem('count_store_px')
+		const dataObj = JSON.parse(data || '{}')
 
 		if (data) {
-			const blob = new Blob([data], { type: 'text/json' })
+			const blob = new Blob([JSON.stringify(dataObj.state.list)], {
+				type: 'application/json',
+			})
 			const url = URL.createObjectURL(blob)
 			const a = document.createElement('a')
 			a.href = url
