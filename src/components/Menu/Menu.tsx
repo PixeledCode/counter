@@ -14,16 +14,19 @@ import { Share } from '../icons/Share'
 import { SyncIcon } from '../icons/SyncIcon'
 import { Template } from '../Share/Template'
 import { ListProps } from '@/lib/store'
+import { Profile } from '../icons/Profile'
 
 export const Menu = ({
 	setEditMode,
 	setLogMode,
 	setSyncOpen,
+	setProfileOpen,
 	list,
 }: {
 	setEditMode: (value: boolean) => void
 	setLogMode: (value: boolean) => void
 	setSyncOpen: (value: boolean) => void
+	setProfileOpen: (value: boolean) => void
 	list: ListProps
 }) => {
 	const [canShare, setCanShare] = React.useState(false)
@@ -97,6 +100,16 @@ export const Menu = ({
 					<span className="flex items-center gap-3">
 						<SyncIcon width={16} fill="var(--theme-icon)" />
 						Sync
+					</span>
+				</DropdownMenuItem>
+				<DropdownMenuItem
+					onClick={() => {
+						setProfileOpen(true)
+					}}
+				>
+					<span className="flex items-center gap-3">
+						<Profile width={16} fill="var(--theme-icon)" />
+						Profile
 					</span>
 				</DropdownMenuItem>
 			</DropdownMenuContent>

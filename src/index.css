@@ -111,3 +111,14 @@ select:focus,
 textarea {
 	font-size: 16px;
 }
+
+.gradient {
+	background: linear-gradient(
+		var(--theme-bg-primary),
+		var(--theme-bg-seconday)
+	);
+}
+
+[data-theme-check='true'] svg {
+	display: block;
+}

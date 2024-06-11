@@ -7,6 +7,7 @@ import { ListProps, useStore } from './lib/store'
 import { Activity } from './components/Activity/Activity'
 import { Sync } from './components/Sync/Sync'
 import { uploadData } from './lib/utils'
+import { Profile } from './components/Profile/Profile'
 
 function App() {
 	const list = useStore((state) => state.list)
@@ -15,20 +16,25 @@ function App() {
 	const [editMode, setEditMode] = React.useState(false)
 	const [logMode, setLogMode] = React.useState(false)
 	const [syncOpen, setSyncOpen] = React.useState(false)
+	const [profileOpen, setProfileOpen] = React.useState(false)
 
 	return (
 		<main className="max-w-[520px] mx-auto">
 			<div className="grid grid-rows-[auto_1fr_auto] h-[100svh] relative">
 				<Header
+					list={list}
+					profileOpen={profileOpen}
+					editList={editList}
 					editMode={editMode}
 					setEditMode={setEditMode}
 					setLogMode={setLogMode}
 					setSyncOpen={setSyncOpen}
-					list={list}
-					editList={editList}
+					setProfileOpen={setProfileOpen}
 				/>
 
-				{editMode ? (
+				{profileOpen ? (
+					<Profile />
+				) : editMode ? (
 					<EditList setEditMode={setEditMode} list={list} editList={editList} />
 				) : (
 					<List list={list} editList={editList} />
@@ -47,24 +53,42 @@ const Header = ({
 	setLogMode,
 	setSyncOpen,
 	list,
+	profileOpen,
 	editList,
+	setProfileOpen,
 }: {
 	editMode: boolean
+	list: ListProps
+	profileOpen: boolean
 	setEditMode: (value: boolean) => void
 	setLogMode: (value: boolean) => void
 	setSyncOpen: (value: boolean) => void
-	list: ListProps
 	editList: (list: ListProps) => void
+	setProfileOpen: (value: boolean) => void
 }) => {
+	const profile = useStore((state) => state.profile)
+
+	const profileName = `${profile.name}${
+		profile.counterName ? "'s " + profile.counterName : ''
+	}`
 	return (
 		<div className="flex justify-between items-center gap-6 px-6 py-3 bg-theme-bg-primary text-theme-text-on-primary">
-			<h1 className="font-extrabold">Counter</h1>
-			{editMode ? (
+			<button
+				onClick={() => {
+					setProfileOpen(false)
+				}}
+			>
+				<h1 className="font-extrabold">{profileName}</h1>
+			</button>
+			{editMode || profileOpen ? (
 				<Button
 					variant="outline"
 					size="sm"
 					className="text-theme-text-on-primary bg-theme-bg-primary hover:bg-theme-bg-primary active:bg-theme-bg-primary h-10"
-					onClick={() => setEditMode(false)}
+					onClick={() => {
+						setEditMode(false)
+						setProfileOpen(false)
+					}}
 				>
 					Cancel
 				</Button>
@@ -73,6 +97,7 @@ const Header = ({
 					setEditMode={setEditMode}
 					setLogMode={setLogMode}
 					setSyncOpen={setSyncOpen}
+					setProfileOpen={setProfileOpen}
 					list={list}
 				/>
 			) : (
