@@ -90,7 +90,9 @@ const Header = ({
 					setProfileOpen(false)
 				}}
 			>
-				<h1 className="font-extrabold">{profileName}</h1>
+				<h1 className="font-extrabold truncate text-ellipsis max-w-56">
+					{profileName}
+				</h1>
 			</button>
 			{editMode || profileOpen ? (
 				<Button
