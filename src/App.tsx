@@ -71,6 +71,18 @@ const Header = ({
 	const profileName = `${profile.name}${
 		profile.counterName ? "'s " + profile.counterName : ''
 	}`
+
+	React.useEffect(() => {
+		const body = document.querySelector('body')
+
+		if (profile.theme === 'red') {
+			body?.classList.add('red')
+			body?.classList.remove('blue')
+		} else {
+			body?.classList.add('blue')
+			body?.classList.remove('red')
+		}
+	}, [profile])
 	return (
 		<div className="flex justify-between items-center gap-6 px-6 py-3 bg-theme-bg-primary text-theme-text-on-primary">
 			<button
