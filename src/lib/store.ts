@@ -20,7 +20,7 @@ export type ListProps = {
 	}
 }[]
 
-type ProfileProps = {
+export type ProfileProps = {
 	name: string
 	counterName: string
 	theme: 'red' | 'blue'

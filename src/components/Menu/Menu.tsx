@@ -13,7 +13,7 @@ import { Calendar } from '../icons/Calendar'
 import { Share } from '../icons/Share'
 import { SyncIcon } from '../icons/SyncIcon'
 import { Template } from '../Share/Template'
-import { ListProps } from '@/lib/store'
+import { ListProps, useStore } from '@/lib/store'
 import { Profile } from '../icons/Profile'
 
 export const Menu = ({
@@ -31,6 +31,7 @@ export const Menu = ({
 }) => {
 	const [canShare, setCanShare] = React.useState(false)
 	const [isOpened, setIsOpened] = React.useState(false)
+	const profile = useStore((state) => state.profile)
 
 	React.useEffect(() => {
 		if ('share' in navigator) {
@@ -80,9 +81,12 @@ export const Menu = ({
 				{canShare ? (
 					<DropdownMenuItem
 						onClick={async () => {
-							const pngURI = await reactToSVG(<Template list={list} />, {
-								width: 320,
-							}).then((res) => svgToPngURI(res))
+							const pngURI = await reactToSVG(
+								<Template list={list} profile={profile} />,
+								{
+									width: 320,
+								}
+							).then((res) => svgToPngURI(res))
 							shareImage(pngURI)
 						}}
 					>

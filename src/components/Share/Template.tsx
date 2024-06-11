@@ -1,7 +1,30 @@
-import { ListProps } from '@/lib/store'
+import { ListProps, ProfileProps } from '@/lib/store'
 
-export const Template = ({ list }: { list: ListProps }) => {
+const colors = {
+	red: {
+		background: '#b20b35',
+		text: '#330813',
+	},
+	blue: {
+		background: '#0e0bb2',
+		text: '#090833',
+	},
+}
+
+export const Template = ({
+	list,
+	profile,
+}: {
+	list: ListProps
+	profile: ProfileProps
+}) => {
 	const date = new Date()
+
+	const profileName = `${profile.name}${
+		profile.counterName ? "'s " + profile.counterName : ''
+	}`
+
+	const color = colors[profile.theme]
 
 	const formattedDate = date.toLocaleDateString('en-US', {
 		day: 'numeric',
@@ -27,7 +50,7 @@ export const Template = ({ list }: { list: ListProps }) => {
 					justifyContent: 'center',
 					alignItems: 'center',
 					padding: '12px 24px',
-					backgroundColor: '#b20b35',
+					backgroundColor: color.background,
 					color: 'white',
 				}}
 			>
@@ -37,7 +60,7 @@ export const Template = ({ list }: { list: ListProps }) => {
 						lineHeight: '1',
 					}}
 				>
-					Counter
+					{profileName}
 				</p>
 				<p
 					style={{
@@ -66,7 +89,7 @@ export const Template = ({ list }: { list: ListProps }) => {
 							justifyContent: 'space-between',
 							padding: '0 16px',
 							backgroundColor: 'white',
-							color: '#330813',
+							color: color.text,
 							borderRadius: '8px',
 							fontSize: '1.25rem',
 							fontWeight: 'bold',
