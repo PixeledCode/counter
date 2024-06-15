@@ -18,7 +18,7 @@ export const Count = ({
 	const [count, setCount] = React.useState(defaultCount)
 
 	function changeCount(type: 'add' | 'reduce') {
-		navigator.vibrate(200)
+		navigator.vibrate(50)
 		if (type === 'reduce' && count === 0) return
 
 		let updatedCount = count
