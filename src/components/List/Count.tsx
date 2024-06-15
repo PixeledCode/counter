@@ -57,7 +57,7 @@ export const Count = ({
 				<Button
 					variant="ghost"
 					size="icon"
-					className="p-0"
+					className="p-0 active:scale-95"
 					onClick={() => changeCount('reduce')}
 				>
 					<Minus width={48} />
@@ -71,7 +71,7 @@ export const Count = ({
 					variant="ghost"
 					size="icon"
 					onClick={() => changeCount('add')}
-					className="p-0"
+					className="p-0 active:scale-95"
 				>
 					<Plus width={48} />
 				</Button>

@@ -31,7 +31,7 @@ export const AddCount = () => {
 			}}
 		>
 			<DrawerTrigger asChild>
-				<Button className="w-full mx-auto rounded-lg font-extrabold bg-theme-bg-primary active:bg-theme-bg-primary hover:bg-theme-bg-primary">
+				<Button className="w-full mx-auto rounded-lg font-extrabold bg-theme-bg-primary active:bg-theme-bg-primary hover:bg-theme-bg-primary active:scale-[98%]">
 					Add new count
 				</Button>
 			</DrawerTrigger>
@@ -39,7 +39,7 @@ export const AddCount = () => {
 			<DrawerContent>
 				<DrawerHeader className="flex items-center justify-between gap-2">
 					<DrawerTitle className="font-semibold">Add New Count</DrawerTitle>
-					<DrawerClose className="bg-theme-bg-seconday text-theme-text-on-secondary py-1 px-2 rounded-md">
+					<DrawerClose className="bg-theme-bg-seconday text-theme-text-on-secondary py-1 px-2 rounded-md active:scale-95">
 						Cancel
 					</DrawerClose>
 				</DrawerHeader>
@@ -73,7 +73,7 @@ export const AddCount = () => {
 
 				<DrawerFooter>
 					<Button
-						className="w-full mx-auto rounded-lg font-extrabold bg-theme-bg-primary active:bg-theme-bg-primary hover:bg-theme-bg-primary"
+						className="w-full mx-auto rounded-lg font-extrabold bg-theme-bg-primary active:bg-theme-bg-primary hover:bg-theme-bg-primary active:scale-[98%]"
 						onClick={() => {
 							if (name && Number(count) >= 0) {
 								const alreadyExists = list.find((item) => item.name === name)

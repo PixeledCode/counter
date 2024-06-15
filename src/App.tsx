@@ -98,7 +98,7 @@ const Header = ({
 				<Button
 					variant="outline"
 					size="sm"
-					className="text-theme-text-on-primary bg-theme-bg-primary hover:bg-theme-bg-primary active:bg-theme-bg-primary h-10"
+					className="text-theme-text-on-primary bg-theme-bg-primary hover:bg-theme-bg-primary hover:text-theme-text-on-primary active:bg-theme-bg-primary h-10 active:scale-95"
 					onClick={() => {
 						setEditMode(false)
 						setProfileOpen(false)

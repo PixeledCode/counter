@@ -44,7 +44,7 @@ export const EditList = ({
 						editList(list)
 						setEditMode(false)
 					}}
-					className="w-full mx-auto rounded-lg font-extrabold bg-theme-bg-primary active:bg-theme-bg-primary hover:bg-theme-bg-primary"
+					className="w-full mx-auto rounded-lg font-extrabold bg-theme-bg-primary active:bg-theme-bg-primary hover:bg-theme-bg-primary active:scale-[98%]"
 				>
 					Save
 				</Button>
@@ -130,7 +130,7 @@ const Count = ({
 					variant="outline"
 					size="sm"
 					onClick={() => deleteItem(name)}
-					className="bg-warning-secondary-bg border-none text-sm font-bold text-warning-dark"
+					className="bg-warning-secondary-bg text-warning-dark hover:bg-warning-secondary-bg hover:text-warning-dark border-none text-sm font-bold active:scale-95"
 				>
 					<span className="flex items-center gap-2">
 						<Trash width={20} />

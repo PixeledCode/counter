@@ -88,7 +88,7 @@ export const Profile = () => {
 				<Button
 					size="sm"
 					variant="secondary"
-					className="mt-1"
+					className="mt-1 active:scale-[98%]"
 					onClick={() => {
 						editProfile({
 							name,
