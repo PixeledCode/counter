@@ -3,6 +3,7 @@ import { ListProps } from '@/lib/store'
 import React from 'react'
 import { Minus } from '../icons/Minus'
 import { Plus } from '../icons/Plus'
+import FlipNumbers from 'react-flip-numbers'
 
 export const Count = ({
 	name,
@@ -66,7 +67,15 @@ export const Count = ({
 				</Button>
 				<div className="overflow-hidden text-center relative w-32 h-6">
 					<div className="w-full h-full flex items-center justify-center">
-						<span className="font-bold">{count}</span>
+						<FlipNumbers
+							height={20}
+							width={20}
+							color="var(--theme-text)"
+							numberClassName="font-bold"
+							play
+							perspective={300}
+							numbers={String(count)}
+						/>
 					</div>
 				</div>
 				<Button
