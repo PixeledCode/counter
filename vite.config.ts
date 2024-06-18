@@ -23,7 +23,7 @@ export default defineConfig({
 				short_name: 'Counter',
 				description:
 					'A basic counter app which ability to add new counters, update or delete them',
-				name: 'Counter App',
+				name: 'Counter',
 				icons: [
 					{
 						src: '/icon-192x192.png',
