@@ -4,6 +4,7 @@ import React from 'react'
 import { Trash } from '../icons/Trash'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 export const EditList = ({
 	setEditMode,
@@ -15,6 +16,17 @@ export const EditList = ({
 	editList: (list: ListProps) => void
 }) => {
 	const [list, setList] = React.useState(defaultList)
+
+	function onDragEnd(result: any) {
+		console.log(result)
+
+		if (!result.destination) return
+		const items = Array.from(list)
+		const [reorderedItem] = items.splice(result.source.index, 1)
+		items.splice(result.destination.index, 0, reorderedItem)
+		setList(items)
+	}
+
 	return (
 		<>
 			{list.length === 0 ? (
@@ -25,17 +37,38 @@ export const EditList = ({
 					</h2>
 				</section>
 			) : (
-				<section className="flex flex-col gap-2 py-4 list-container px-4 overflow-y-auto h-[calc(100%_-_48px)]">
-					{list.map(({ name, count }) => (
-						<Count
-							key={name}
-							name={name}
-							count={count}
-							list={list}
-							setList={setList}
-						/>
-					))}
-				</section>
+				<DragDropContext onDragEnd={onDragEnd}>
+					<Droppable droppableId="editList">
+						{(provided) => (
+							<ul
+								className="flex flex-col gap-2 py-4 list-container px-4 overflow-y-auto h-[calc(100%_-_48px)]"
+								{...provided.droppableProps}
+								ref={provided.innerRef}
+							>
+								{list.map(({ name, count }, index) => (
+									<Draggable draggableId={name} index={index} key={name}>
+										{(provided) => (
+											<li
+												ref={provided.innerRef}
+												{...provided.dragHandleProps}
+												{...provided.draggableProps}
+											>
+												<Count
+													name={name}
+													count={count}
+													list={list}
+													setList={setList}
+													index={index}
+												/>
+											</li>
+										)}
+									</Draggable>
+								))}
+								{provided.placeholder}
+							</ul>
+						)}
+					</Droppable>
+				</DragDropContext>
 			)}
 
 			<div className="absolute w-full bottom-3 px-3">
@@ -63,6 +96,7 @@ const Count = ({
 	count: number
 	list: ListProps
 	setList: (list: ListProps) => void
+	index: number
 }) => {
 	const [count, setCount] = React.useState(defaultCount)
 
@@ -111,6 +145,7 @@ const Count = ({
 		const newArr = list.filter((item) => item.name !== name)
 		setList(newArr)
 	}
+
 	return (
 		<article className="flex flex-col gap-3 p-3 bg-theme-bg-subtle rounded-md">
 			<h2 className="text-xl font-semibold tracking-tight">{name}</h2>
