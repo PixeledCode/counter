@@ -165,7 +165,7 @@ const Count = ({
 					variant="outline"
 					size="sm"
 					onClick={() => deleteItem(name)}
-					className="bg-warning-secondary-bg text-warning-dark hover:bg-warning-secondary-bg hover:text-warning-dark border-none text-sm font-bold active:scale-95"
+					className="bg-warning-secondary-bg rounded-[8px] text-warning-dark hover:bg-warning-secondary-bg hover:text-warning-dark border-none text-sm font-bold active:scale-95"
 				>
 					<span className="flex items-center gap-2">
 						<Trash width={20} />

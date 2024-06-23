@@ -56,7 +56,7 @@ export const Sync = ({
 			<DrawerContent>
 				<DrawerHeader className="flex items-center justify-between gap-2 px-6">
 					<DrawerTitle className="font-semibold">Sync</DrawerTitle>
-					<DrawerClose className="bg-theme-bg-seconday text-theme-text-on-secondary py-1 px-2 rounded-md active:scale-95">
+					<DrawerClose className="bg-theme-bg-seconday text-theme-text-on-secondary py-1 px-2 rounded-[8px] active:scale-95">
 						Cancel
 					</DrawerClose>
 				</DrawerHeader>
