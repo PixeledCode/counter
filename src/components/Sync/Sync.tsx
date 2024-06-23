@@ -42,6 +42,8 @@ export const Sync = ({
 		}
 	}
 
+	const btnClass =
+		'flex items-center justify-center gap-2 bg-theme-bg-subtle border-theme-grey rounded-lg p-2 px-4 grow h-20 text-theme-icon font-bold text-sm'
 	return (
 		<Drawer
 			open={syncOpen}
@@ -51,7 +53,7 @@ export const Sync = ({
 				}
 			}}
 		>
-			<DrawerContent className="min-h-[40dvh]">
+			<DrawerContent className="">
 				<DrawerHeader className="flex items-center justify-between gap-2 px-6">
 					<DrawerTitle className="font-semibold">Sync</DrawerTitle>
 					<DrawerClose className="bg-theme-bg-seconday text-theme-text-on-secondary py-1 px-2 rounded-md active:scale-95">
@@ -59,22 +61,19 @@ export const Sync = ({
 					</DrawerClose>
 				</DrawerHeader>
 
-				<div className="flex flex-col gap-2 px-4">
-					<button
-						onClick={downloadData}
-						className="flex items-center justify-between gap-2 border border-solid border-theme-grey rounded-lg p-2 px-4"
-					>
-						<span className="flex items-center gap-4">
-							<Download width={18} />
+				<div className="flex gap-4 px-4 mt-4 mb-8">
+					<button onClick={downloadData} className={btnClass}>
+						<span className="flex flex-col justify-center items-center gap-2">
+							<Download width={24} />
 							Download
 						</span>
 					</button>
 					<button
 						onClick={() => uploadData(editList, setSyncOpen)}
-						className="flex items-center justify-between gap-2 border border-solid border-theme-grey rounded-lg p-2 px-4"
+						className={btnClass}
 					>
-						<span className="flex items-center gap-4">
-							<Upload width={18} />
+						<span className="flex flex-col justify-center items-center gap-2">
+							<Upload width={24} />
 							Upload
 						</span>
 					</button>
