@@ -104,7 +104,7 @@ export const AddCount = () => {
 								setCount(0)
 								setName('')
 							} else {
-								toast.error('Name is required and minimum count is 0', {})
+								toast.error('Name is required', {})
 							}
 						}}
 					>
