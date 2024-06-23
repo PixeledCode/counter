@@ -6,6 +6,6 @@ import { Toaster } from '@/components/ui/sonner'
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<>
 		<App />
-		<Toaster richColors={true} closeButton />
+		<Toaster richColors={true} />
 	</>
 )
