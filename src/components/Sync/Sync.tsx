@@ -61,7 +61,7 @@ export const Sync = ({
 				<div className="flex flex-col gap-2 px-4">
 					<button
 						onClick={downloadData}
-						className="flex items-center justify-between gap-2 border border-solid border-slate-400 rounded-lg p-2 px-4"
+						className="flex items-center justify-between gap-2 border border-solid border-theme-grey rounded-lg p-2 px-4"
 					>
 						<span className="flex items-center gap-4">
 							<Download size={18} color="var(--theme-icon)" />
@@ -70,7 +70,7 @@ export const Sync = ({
 					</button>
 					<button
 						onClick={() => uploadData(editList, setSyncOpen)}
-						className="flex items-center justify-between gap-2 border border-solid border-slate-400 rounded-lg p-2 px-4"
+						className="flex items-center justify-between gap-2 border border-solid border-theme-grey rounded-lg p-2 px-4"
 					>
 						<span className="flex items-center gap-4">
 							<Upload size={18} color="var(--theme-icon)" />

@@ -58,64 +58,73 @@ export const Menu = ({
 				)}
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align="end" className="font-bold">
-				<DropdownMenuItem
-					onClick={() => {
-						setEditMode(true)
-					}}
-				>
-					<span className="flex items-center gap-3">
-						<Edit width={16} />
-						Edit
-					</span>
-				</DropdownMenuItem>
-				<DropdownMenuItem
-					onClick={() => {
-						setLogMode(true)
-					}}
-				>
-					<span className="flex items-center gap-3">
-						<Calendar width={16} />
-						Logs
-					</span>
-				</DropdownMenuItem>
-				{canShare ? (
+				<div className="flex flex-col gap-2">
 					<DropdownMenuItem
-						onClick={async () => {
-							const pngURI = await reactToSVG(
-								<Template list={list} profile={profile} />,
-								{
-									width: 320,
-								}
-							).then((res) => svgToPngURI(res))
-							shareImage(pngURI)
+						onClick={() => {
+							setEditMode(true)
 						}}
 					>
 						<span className="flex items-center gap-3">
-							<Share width={16} />
-							Share
+							<Edit width={16} />
+							Edit
 						</span>
 					</DropdownMenuItem>
-				) : null}
-				<DropdownMenuItem
-					onClick={() => {
-						setSyncOpen(true)
-					}}
-				>
-					<span className="flex items-center gap-3">
-						<SyncIcon width={16} fill="var(--theme-icon)" />
-						Sync
-					</span>
-				</DropdownMenuItem>
-				<DropdownMenuItem
-					onClick={() => {
-						setProfileOpen(true)
-					}}
-				>
-					<span className="flex items-center gap-3">
-						<Profile width={16} fill="var(--theme-icon)" />
-						Profile
-					</span>
-				</DropdownMenuItem>
+
+					<div className="h-[1px] w-full bg-theme-grey"></div>
+
+					<DropdownMenuItem
+						onClick={() => {
+							setLogMode(true)
+						}}
+					>
+						<span className="flex items-center gap-3">
+							<Calendar width={16} />
+							Activity
+						</span>
+					</DropdownMenuItem>
+					<DropdownMenuItem
+						onClick={() => {
+							setSyncOpen(true)
+						}}
+					>
+						<span className="flex items-center gap-3">
+							<SyncIcon width={16} fill="var(--theme-icon)" />
+							Sync
+						</span>
+					</DropdownMenuItem>
+
+					<div className="h-[1px] w-full bg-theme-grey"></div>
+
+					{canShare ? (
+						<DropdownMenuItem
+							onClick={async () => {
+								const pngURI = await reactToSVG(
+									<Template list={list} profile={profile} />,
+									{
+										width: 320,
+									}
+								).then((res) => svgToPngURI(res))
+								shareImage(pngURI)
+							}}
+						>
+							<span className="flex items-center gap-3">
+								<Share width={16} />
+								Share
+							</span>
+						</DropdownMenuItem>
+					) : null}
+
+					<DropdownMenuItem
+						onClick={() => {
+							setProfileOpen(true)
+						}}
+					>
+						<span className="flex items-center gap-3">
+							<Profile width={16} fill="var(--theme-icon)" />
+							Profile
+						</span>
+					</DropdownMenuItem>
+				</div>
 			</DropdownMenuContent>
 		</DropdownMenu>
 	)

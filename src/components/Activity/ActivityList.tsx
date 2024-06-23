@@ -23,7 +23,7 @@ export const ActivityList = ({
 						{list.map((item, index) => (
 							<button
 								key={index}
-								className="flex items-center justify-between gap-2 border border-solid border-slate-400 rounded-lg p-2 px-4"
+								className="flex items-center justify-between gap-2 border border-solid border-theme-grey rounded-lg p-2 px-4"
 								onClick={() => setActiveCounter(item)}
 							>
 								<div className="flex flex-col gap-1">

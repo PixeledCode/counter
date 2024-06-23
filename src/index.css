@@ -43,6 +43,7 @@
 		--theme-text: #330813;
 		--theme-text-on-primary: #ffffff;
 		--theme-text-on-secondary: var(--theme-icon);
+		--theme-grey: #e5e5e5;
 
 		--warning-mid: #e58a9a;
 		--warning-dark: #b20b2a;

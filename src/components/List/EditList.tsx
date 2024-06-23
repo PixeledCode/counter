@@ -77,7 +77,7 @@ export const EditList = ({
 						editList(list)
 						setEditMode(false)
 					}}
-					className="w-full mx-auto rounded-lg font-extrabold bg-theme-bg-primary active:bg-theme-bg-primary hover:bg-theme-bg-primary active:scale-[98%]"
+					className="w-full mx-auto rounded-lg font-extrabold bg-theme-bg-primary active:bg-theme-bg-primary hover:bg-theme-bg-primary active:scale-[98%] h-12"
 				>
 					Save
 				</Button>

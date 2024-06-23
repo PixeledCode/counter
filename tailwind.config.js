@@ -61,6 +61,7 @@ module.exports = {
 				'theme-text': 'var(--theme-text)',
 				'theme-text-on-primary': 'var(--theme-text-on-primary)',
 				'theme-text-on-secondary': 'var(--theme-text-on-secondary)',
+				'theme-grey': 'var(--theme-grey)',
 				'warning-mid': 'var(--warning-mid)',
 				'warning-dark': 'var(--warning-dark)',
 				'warning-secondary-bg': 'var(--warning-secondary-bg)',

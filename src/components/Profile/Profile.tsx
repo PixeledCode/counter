@@ -84,11 +84,9 @@ export const Profile = () => {
 						))}
 					</div>
 				</div>
-
+			</div>
+			<div className="absolute w-full bottom-3 px-3">
 				<Button
-					size="sm"
-					variant="secondary"
-					className="mt-1 active:scale-[98%]"
 					onClick={() => {
 						editProfile({
 							name,
@@ -97,6 +95,7 @@ export const Profile = () => {
 						})
 						toast.success('Profile updated')
 					}}
+					className="w-full mx-auto rounded-lg font-extrabold bg-theme-bg-primary active:bg-theme-bg-primary hover:bg-theme-bg-primary active:scale-[98%] h-12"
 				>
 					Save
 				</Button>
