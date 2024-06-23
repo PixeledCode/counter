@@ -1,4 +1,3 @@
-import { Download, Upload } from 'lucide-react'
 import {
 	Drawer,
 	DrawerClose,
@@ -9,6 +8,8 @@ import {
 import { toast } from 'sonner'
 import { useStore } from '@/lib/store'
 import { uploadData } from '@/lib/utils'
+import { Download } from '../icons/Download'
+import { Upload } from '../icons/Upload'
 
 export const Sync = ({
 	syncOpen,
@@ -64,7 +65,7 @@ export const Sync = ({
 						className="flex items-center justify-between gap-2 border border-solid border-theme-grey rounded-lg p-2 px-4"
 					>
 						<span className="flex items-center gap-4">
-							<Download size={18} color="var(--theme-icon)" />
+							<Download width={18} />
 							Download
 						</span>
 					</button>
@@ -73,7 +74,7 @@ export const Sync = ({
 						className="flex items-center justify-between gap-2 border border-solid border-theme-grey rounded-lg p-2 px-4"
 					>
 						<span className="flex items-center gap-4">
-							<Upload size={18} color="var(--theme-icon)" />
+							<Upload width={18} />
 							Upload
 						</span>
 					</button>
