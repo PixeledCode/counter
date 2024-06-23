@@ -85,7 +85,7 @@ export const Profile = () => {
 					</div>
 				</div>
 			</div>
-			<div className="absolute w-full bottom-3 px-3">
+			<div className="absolute w-full bottom-3 left-0 px-3">
 				<ChonkyButton
 					onClick={() => {
 						editProfile({

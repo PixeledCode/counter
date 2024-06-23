@@ -24,7 +24,7 @@ export const ActivityCalendar = ({
 	return (
 		<div className="px-4 mt-4 w-full">
 			<Button
-				variant="outline"
+				variant="ghost"
 				size="sm"
 				className="gap-2 pr-4"
 				onClick={() => setActiveCounter(null)}
