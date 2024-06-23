@@ -7,12 +7,13 @@ import {
 	DrawerTitle,
 	DrawerTrigger,
 } from '@/components/ui/drawer'
-import { Button } from './ui/button'
+
 import React from 'react'
 import { useStore } from '@/lib/store'
 import { toast } from 'sonner'
 import { Input } from './ui/input'
 import { Label } from './ui/label'
+import { ChonkyButton } from './Button'
 
 export const AddCount = () => {
 	const [name, setName] = React.useState('')
@@ -31,9 +32,7 @@ export const AddCount = () => {
 			}}
 		>
 			<DrawerTrigger asChild>
-				<Button className="w-full mx-auto rounded-lg font-extrabold bg-theme-bg-primary active:bg-theme-bg-primary hover:bg-theme-bg-primary active:scale-[98%] h-12">
-					Add new count
-				</Button>
+				<ChonkyButton>Add new count</ChonkyButton>
 			</DrawerTrigger>
 
 			<DrawerContent>
@@ -72,7 +71,7 @@ export const AddCount = () => {
 				</div>
 
 				<DrawerFooter>
-					<Button
+					<ChonkyButton
 						className="w-full mx-auto rounded-lg font-extrabold bg-theme-bg-primary active:bg-theme-bg-primary hover:bg-theme-bg-primary active:scale-[98%] h-12"
 						onClick={() => {
 							if (name && Number(count) >= 0) {
@@ -105,17 +104,12 @@ export const AddCount = () => {
 								setCount(0)
 								setName('')
 							} else {
-								toast.error('Name is required and minimum count is 0', {
-									action: {
-										label: 'Dismiss',
-										onClick: () => {},
-									},
-								})
+								toast.error('Name is required and minimum count is 0', {})
 							}
 						}}
 					>
 						Save
-					</Button>
+					</ChonkyButton>
 				</DrawerFooter>
 			</DrawerContent>
 		</Drawer>

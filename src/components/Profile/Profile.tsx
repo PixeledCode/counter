@@ -6,6 +6,7 @@ import { Label } from '../ui/label'
 import { Button } from '../ui/button'
 import React from 'react'
 import { toast } from 'sonner'
+import { ChonkyButton } from '../Button'
 
 const themes: {
 	name: 'red' | 'blue'
@@ -86,7 +87,7 @@ export const Profile = () => {
 				</div>
 			</div>
 			<div className="absolute w-full bottom-3 px-3">
-				<Button
+				<ChonkyButton
 					onClick={() => {
 						editProfile({
 							name,
@@ -95,10 +96,9 @@ export const Profile = () => {
 						})
 						toast.success('Profile updated')
 					}}
-					className="w-full mx-auto rounded-lg font-extrabold bg-theme-bg-primary active:bg-theme-bg-primary hover:bg-theme-bg-primary active:scale-[98%] h-12"
 				>
 					Save
-				</Button>
+				</ChonkyButton>
 			</div>
 		</div>
 	)

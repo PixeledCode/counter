@@ -5,6 +5,7 @@ import { Trash } from '../icons/Trash'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import { ChonkyButton } from '../Button'
 
 export const EditList = ({
 	setEditMode,
@@ -72,15 +73,14 @@ export const EditList = ({
 			)}
 
 			<div className="absolute w-full bottom-3 px-3">
-				<Button
+				<ChonkyButton
 					onClick={() => {
 						editList(list)
 						setEditMode(false)
 					}}
-					className="w-full mx-auto rounded-lg font-extrabold bg-theme-bg-primary active:bg-theme-bg-primary hover:bg-theme-bg-primary active:scale-[98%] h-12"
 				>
 					Save
-				</Button>
+				</ChonkyButton>
 			</div>
 		</>
 	)
